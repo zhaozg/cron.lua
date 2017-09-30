@@ -1,0 +1,18 @@
+# use /bin/sh to run commands, no matter what /etc/passwd says
+SHELL=/bin/sh
+# mail any output to `paul', no matter whose crontab this is
+MAILTO=paul
+#
+# run five minutes after midnight, every day
+5 0 * * *       c:\Windows\System32\cmd.exe /C echo aaa$HOME/bin/daily.job
+# run at 2:15pm on the first of every month -- output mailed to paul
+15 14 1 * *     c:\Windows\System32\cmd.exe /C echo aaa$HOME/bin/monthly
+# run at 10 pm on weekdays, annoy Joe
+0 22 * * 1-5	c:\Windows\System32\cmd.exe /C echo aaamail -s "It's 10pm" joe%Joe,%%Where are your kids?%
+23 0-23/2 * * * c:\Windows\System32\cmd.exe /C echo aaaecho "run 23 minutes after midn, 2am, 4am ..., everyday"
+5 4 * * sun     c:\Windows\System32\cmd.exe /C echo aaaecho "run at 5 after 4 every sunday" 
+* * * * * c:\Windows\System32\cmd.exe /C ping 192.168.1.1
+0-60 * * * * c:\Windows\System32\cmd.exe /C echo aaaecho abcd2
+0-60/2 * * * * c:\Windows\System32\cmd.exe /C echo aaaecho abcd3
+*/2 * * * * c:\Windows\System32\cmd.exe /C echo aaaecho abcd4
+31,32,33,34 * * * * c:\Windows\System32\cmd.exe /C echo aaaecho abcd5
