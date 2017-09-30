@@ -124,7 +124,7 @@ function Crond:initialize(options)
         options = options or {}
         options.interval = options.interval or 10
         options.crontab = options.crontab or '/etc/crontab'
-        options.debug = true
+        options.debug = options.debug or false
         self.debug = options.debug
 
         self.tasks = loadtab(options.crontab,options.debug)
